@@ -43,4 +43,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
             cd /home/cybersg/domains/ptaq-web.eu/public_nodejs
-            pm2 restart ecosystem.config.js
+            /home/cybersg/.npm-global/bin/pm2 restart ecosystem.config.js
