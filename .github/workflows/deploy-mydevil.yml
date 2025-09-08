@@ -1,6 +1,7 @@
 name: Build and Deploy Ptaq to MyDevil
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ] 
 
