@@ -2,11 +2,10 @@ module.exports = {
   apps: [
     {
       name: "ptaq-web",
-      script: "npm22",
-      args: "start -- -p 2137",
+      script: "./node_modules/.bin/next",
+      args: "start -p 2137",
       cwd: ".",
-      instances: "max",
-      exec_mode: "cluster",
+      interpreter: "/usr/local/bin/node22",
       env: {
         NODE_ENV: "production",
       },
