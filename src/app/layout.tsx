@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 // import Header from "@/components/Header";
 // import Footer from "@/components/Footer";
@@ -35,13 +36,31 @@ Readonly<{
 
             {/* Birds silhouettes */}
             <div className="absolute top-16 right-1/4 text-4xl opacity-20 animate-pulse">
-              🐦
+              <Image
+                src="/pigeon.png"
+                alt="Pigeon"
+                width={80}
+                height={80}
+                className="w-16 h-16 md:w-20 md:h-20"
+              />
             </div>
             <div className="absolute top-40 left-1/4 text-3xl opacity-15 animate-pulse delay-1000">
-              🕊️
+              <Image
+                src="/swift.png"
+                alt="Swift"
+                width={80}
+                height={80}
+                className="w-16 h-16 md:w-20 md:h-20"
+              />
             </div>
             <div className="absolute bottom-32 right-16 text-5xl opacity-10 animate-pulse delay-2000">
-              🦉
+              <Image
+                src="/owl.png"
+                alt="Owl"
+                width={80}
+                height={80}
+                className="w-16 h-16 md:w-20 md:h-20"
+              />
             </div>
 
             {/* Decorative circles */}
