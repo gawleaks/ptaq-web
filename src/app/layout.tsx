@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "PTAQ - Książki o ptakach dla dzieci",
   description:
-    "Wydawnictwo PTAQ specjalizuje się w książkach o ptakach dla dzieci. Poznaj nasze serie: PTAQ 3+, PTAQ 6+ i PTAQ Uczy.",
+    "Seria PTAQ to książki przybliżające dzieciom świat ptaków. Poznaj nasze serie: PTAQ 3+, PTAQ 6+ i PTAQ Uczy.",
   keywords: "książki dla dzieci, ptaki, edukacja, natura, dzieci",
 };
 
