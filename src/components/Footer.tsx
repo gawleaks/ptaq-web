@@ -14,8 +14,8 @@ export default function Footer() {
               <h3 className="ml-2 text-lg font-bold text-gray-900">PTAQ</h3>
             </div>
             <p className="text-gray-600 text-sm">
-              Wydawnictwo specjalizujące się w książkach o ptakach dla dzieci.
-              Edukujemy przez fascynację naturą.
+              Seria książek o ptakach dla dzieci. Uczymy fascynacji naturą i
+              rozbudzamy ciekawość świata.
             </p>
           </div>
 

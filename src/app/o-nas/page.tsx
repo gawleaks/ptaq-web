@@ -5,9 +5,9 @@ export default function AboutPage() {
         <h1 className="text-4xl font-bold text-gray-900 mb-8">O nas</h1>
         <div className="prose prose-lg max-w-none">
           <p className="text-xl text-gray-600 mb-6">
-            PTAQ to wydawnictwo, które narodziło się z pasji do natury i
-            przekonania, że edukacja ekologiczna powinna być fascynująca i
-            dostępna dla wszystkich dzieci.
+            PTAQ to seria, która narodziła się z pasji do natury i przekonania,
+            że edukacja ekologiczna powinna być fascynująca i dostępna dla
+            wszystkich dzieci.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">

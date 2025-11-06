@@ -17,9 +17,8 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-              PTAQ to wydawnictwo specjalizujące się w książkach o ptakach dla
-              dzieci. Nasze serie edukują przez fascynację naturą i rozbudzają
-              ciekawość świata.
+              PTAQ to seria książek o ptakach dla dzieci. Nasze serie uczą
+              fascynacji naturą i rozbudzają ciekawość świata.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button asChild size="lg">
