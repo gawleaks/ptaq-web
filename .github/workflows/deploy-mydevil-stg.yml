@@ -1,4 +1,4 @@
-name: Build and Deploy Ptaq to MyDevil
+name: Build and Deploy Ptaq to MyDevil STAGING
 
 on:
   workflow_dispatch:
@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: ".next, public, package.json, package-lock.json, ecosystem.config.js, node_modules"
-          target: "/home/cybersg/domains/ptaq-web.eu/public_nodejs"
+          target: "/home/cybersg/domains/ptaq-web-stg.eu/public_nodejs"
 
       - name: Restart Application on Server
         uses: appleboy/ssh-action@v1.0.3
@@ -42,5 +42,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/cybersg/domains/ptaq-web.eu/public_nodejs
-            /home/cybersg/.npm-global/bin/pm2 restart ecosystem.config.js
+            cd /home/cybersg/domains/ptaq-web-stg.eu/public_nodejs
+            /home/cybersg/.npm-global/bin/pm2 restart ecosystem.config.js --only ptaq-web-stg
