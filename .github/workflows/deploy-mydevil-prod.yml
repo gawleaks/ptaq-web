@@ -2,6 +2,17 @@ name: Build and Deploy Ptaq to MyDevil PRODUCTION
 
 on:
   workflow_dispatch:
+    inputs:
+      domain:
+        description: "MyDevil domain name"
+        required: true
+        default: "ptaq.eu"
+        type: string
+      pm2_app_name:
+        description: "PM2 application name"
+        required: true
+        default: "ptaq-web"
+        type: string
   push:
     branches: ["main"]
 
@@ -27,7 +38,18 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_WIP_MODE: true
+          NODE_ENV: production
 
+      - name: Set deployment target
+        id: deployment
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "domain=${{ github.event.inputs.domain }}" >> $GITHUB_OUTPUT
+            echo "pm2_app=${{ github.event.inputs.pm2_app_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "domain=ptaq.eu" >> $GITHUB_OUTPUT
+            echo "pm2_app=ptaq-web" >> $GITHUB_OUTPUT
+          fi
       - name: Deploy to Server
         uses: appleboy/scp-action@master
         with:
@@ -35,7 +57,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: ".next, public, package.json, package-lock.json, ecosystem.config.js, node_modules"
-          target: "/home/cybersg/domains/ptaq-web.eu/public_nodejs"
+          target: "/home/cybersg/domains/${{ steps.deployment.outputs.domain }}/public_nodejs"
 
       - name: Restart Application on Server
         uses: appleboy/ssh-action@v1.0.3
@@ -44,5 +66,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/cybersg/domains/ptaq-web.eu/public_nodejs
-            /home/cybersg/.npm-global/bin/pm2 restart ecosystem.config.js --only ptaq-web
+            cd /home/cybersg/domains/${{ steps.deployment.outputs.domain }}/public_nodejs
+            /home/cybersg/.npm-global/bin/pm2 restart ecosystem.config.js --only ${{ steps.deployment.outputs.pm2_app }}
